@@ -8,6 +8,8 @@ class Base(DeclarativeBase):
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
+    __tablename__ = "users"
+
     id = Column(Integer, primary_key=True, unique=True, index=True)
     username = Column(String, unique=True, index=True)
     age = Column(Integer)

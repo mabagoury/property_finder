@@ -13,18 +13,18 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision: str = '47bc15221436'
-down_revision: Union[str, None] = '011a2e7100fb'
+down_revision: Union[str, None] = '488710ab0cb9'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    op.add_column("user", sa.Column("is_active", sa.Boolean()))
-    op.add_column("user", sa.Column("is_superuser", sa.Boolean))
-    op.add_column("user", sa.Column("is_verified", sa.Boolean()))
+    op.add_column("users", sa.Column("is_active", sa.Boolean()))
+    op.add_column("users", sa.Column("is_superuser", sa.Boolean))
+    op.add_column("users", sa.Column("is_verified", sa.Boolean()))
 
 
 def downgrade() -> None:
-    op.drop_column("user", "is_verified")
-    op.drop_column("user", "is_superuser")
-    op.drop_column("user", "is_active")
+    op.drop_column("users", "is_verified")
+    op.drop_column("users", "is_superuser")
+    op.drop_column("users", "is_active")
